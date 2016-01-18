@@ -36,7 +36,14 @@ describe AlphabetPyramid do
 	end 
 
 	context 'Display outputs' do 
-
+		it 'displays the right output for input A' do
+			expect(AlphabetPyramid.single_line_output("A")).to eq "A" 
+			expect(AlphabetPyramid.single_line_output("B")).to eq "B B" 
+			expect(AlphabetPyramid.single_line_output("C")).to eq "C   C" 
+		end 
+		it 'displays the correct range of letters' do 
+			expect(AlphabetPyramid.range("E")).to eq "ABCDEDCBA"
+		end 
 	end 
 
 	context 'Final output' do 
