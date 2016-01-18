@@ -11,21 +11,22 @@ class AlphabetPyramid
 		input.upcase
 	end 
 
-	def self.position(input)
-		ALPHABET.index(input)
-	end 
-
-	def self.single_line_output(input)
-		return "A" if input == "A"
-		spacing = self.position(input) * 2 - 1
-		output = ""
-		output << input + " " * spacing + input
-	end 
-
 	def self.range(input)
 		output = ""
-		range = ALPHABET[0..self.position(input)]
+		range = ALPHABET[0..ALPHABET.index(input)]
 		output << range + range[0..-2].reverse
+	end 
+
+	def self.full_response_output(input)
+		output = ""
+		position = ALPHABET.index(input)
+		self.range(input).split("").each do |i|
+		  index = ALPHABET.index(i)
+		  output << " " * ( position - index + 1 )
+		  i == "A" ? ( output << "A" ) : ( output << i + " " * (index * 2 - 1) + i ) 
+		  output << "\n\n" 
+		end
+		return output
 	end 
 
 end 
