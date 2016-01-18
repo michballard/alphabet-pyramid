@@ -4,34 +4,26 @@ describe AlphabetPyramid do
 
 	context 'Check input characters' do 
 		it 'rejects unacceptable inputs' do 
-			expect(AlphabetPyramid.letter?("1")).to eq "INVALID INPUT" 
-			expect(AlphabetPyramid.letter?("*")).to eq "INVALID INPUT" 
-			expect(AlphabetPyramid.letter?("")).to eq "INVALID INPUT" 
+			expect(AlphabetPyramid.is_letter?("1")).to eq false 
+			expect(AlphabetPyramid.is_letter?("*")).to eq false 
+			expect(AlphabetPyramid.is_letter?("")).to eq false 
 		end 
 		it 'accepts alphabetical inputs' do 
-			expect(AlphabetPyramid.letter?("A")).to eq true 
-			expect(AlphabetPyramid.letter?("a")).to eq true 
+			expect(AlphabetPyramid.is_letter?("A")).to eq true 
+			expect(AlphabetPyramid.is_letter?("a")).to eq true 
 		end 
 		it 'rejects multiple character inputs' do 
-			expect(AlphabetPyramid.letter?("AA")).to eq "INVALID INPUT" 
+			expect(AlphabetPyramid.is_letter?("AA")).to eq false 
 		end 
 	end
 
-	context 'Convert input into correct format' do 
-		it 'converts lowercase letters to uppercase' do 
-			expect(AlphabetPyramid.convert("a")).to eq "A"
-			expect(AlphabetPyramid.convert("b")).to eq "B"
-		end
-	end 
-
 	context 'Display outputs' do 
 		it 'identifies the correct range of letters' do 
-			expect(AlphabetPyramid.range("E")).to eq "ABCDEDCBA"
+			expect(AlphabetPyramid.letter_range("E")).to eq "ABCDEDCBA"
 		end 
 	end 
 
 	context 'Final output' do 
-		it 'displays final output' do 
 		    expected = <<-EXPECTED
     A
 
@@ -48,7 +40,14 @@ describe AlphabetPyramid do
     A
 
 EXPECTED
-		    expect(AlphabetPyramid.full_response_output("D")).to eq(expected)
+
+		it 'displays final output' do 
+		    expect(AlphabetPyramid.response("D")).to eq(expected)
+		end 
+		it 'runs final output' do 
+			expect(AlphabetPyramid.run("D")).to eq(expected)
+			expect(AlphabetPyramid.run("d")).to eq(expected)
+			expect(AlphabetPyramid.run("*")).to eq "INVALID INPUT"
 		end 
 	end 
 
