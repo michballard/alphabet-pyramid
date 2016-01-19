@@ -21,19 +21,16 @@ Edge cases:
 If you input "a" or "A", then the output is simply "A".
 If the input is invalid, then the output is "INVALID INPUT". If you read from keyboard input you may ask the user for a new input.
 
-The Criteria
-------------
-The winner will be decided by the judges, but you might want to think about...
-* including a GO script to run it
-* execution time
-* human readability
-* elegance of the solution
 
 To Run
 ------
-To run program:
-	./go <desired-letter>
-
+To run the program:
+```
+./go <desired-letter>
+```
 
 To run tests:
-	rspec
+
+```
+rspec
+```
