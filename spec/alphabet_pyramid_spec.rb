@@ -26,19 +26,12 @@ describe AlphabetPyramid do
 	context 'Final output' do 
 		    expected = <<-EXPECTED
     A
-
    B B
-
   C   C
-
  D     D
-
   C   C
-
    B B
-
     A
-
 EXPECTED
 
 		it 'displays final output' do 

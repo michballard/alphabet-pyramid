@@ -21,7 +21,7 @@ class AlphabetPyramid
 		  index = ALPHABET.index(i)
 		  output << " " * ( position - index + 1 )
 		  i == "A" ? ( output << "A" ) : ( output << i + " " * (index * 2 - 1) + i ) 
-		  output << "\n\n" 
+		  output << "\n" 
 		end
 		return output
 	end 
